@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,120 +13,175 @@
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
 </head>
-<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col justify-between">
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col justify-between selection:bg-amber-300 selection:text-emerald-950">
 
     <!-- HEADER / NAVIGATION -->
-    <header class="bg-emerald-900 text-stone-100 sticky top-0 z-50 shadow-md">
-        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="bg-amber-400 text-emerald-950 font-extrabold px-3 py-1 rounded-lg text-xl tracking-wider">
+    <header class="bg-emerald-950/90 backdrop-blur-md text-stone-100 sticky top-0 z-50 border-b border-emerald-800/50 shadow-lg transition-all">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2 group">
+                <div class="bg-gradient-to-r from-amber-400 to-amber-500 text-emerald-950 font-black px-3.5 py-1.5 rounded-xl text-xl tracking-wider shadow-md group-hover:scale-105 transition-transform duration-200">
                     GuBye!
                 </div>
-                <span class="text-xs md:text-sm text-emerald-200 hidden sm:inline font-medium">
+                <span class="text-xs md:text-sm text-emerald-200 hidden sm:inline font-semibold tracking-wide">
                     Technopreneur Health Beverage
                 </span>
-            </div>
-            <nav class="flex items-center space-x-4 text-xs md:text-sm font-medium">
-                <a href="#calculator" class="hover:text-amber-300 transition">Kalkulator Dosis</a>
-                <a href="#variants" class="hover:text-amber-300 transition">Varian Rasa</a>
-                <a href="#rd-info" class="hover:text-amber-300 transition">R&D & Packaging</a>
-                <a href="#references" class="hover:text-amber-300 transition">Referensi</a>
+            </a>
+            <nav class="flex items-center space-x-5 text-xs md:text-sm font-semibold">
+                <a href="#about" class="text-stone-200 hover:text-amber-300 transition-colors">About Us</a>
+                <a href="#calculator" class="text-stone-200 hover:text-amber-300 transition-colors">Kalkulator Dosis</a>
+                <a href="#variants" class="text-stone-200 hover:text-amber-300 transition-colors">Varian Rasa</a>
             </nav>
         </div>
     </header>
 
-    <!-- HERO & CALCULATOR SECTION -->
-    <main class="max-w-6xl mx-auto px-4 py-8 w-full space-y-12">
+    <!-- MAIN CONTENT -->
+    <main class="max-w-6xl mx-auto px-4 py-8 md:py-12 w-full space-y-16">
         
         <!-- HERO BANNER -->
-        <section class="bg-gradient-to-r from-emerald-800 to-emerald-950 text-white rounded-3xl p-6 md:p-10 shadow-xl relative overflow-hidden">
-            <div class="relative z-10 max-w-2xl space-y-4">
-                <span class="bg-amber-400 text-emerald-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                    EBCC x NBPC 2026 Proposal Concept
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
-                    Cegah <span class="text-amber-300">Sugar Spike</span> dengan Presisi Digital
+        <section class="bg-gradient-to-br from-emerald-900 via-emerald-950 to-stone-900 text-white rounded-3xl p-8 md:p-14 shadow-2xl relative overflow-hidden border border-emerald-800/30">
+            <!-- Decorative Accent Backgrounds -->
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 max-w-2xl space-y-6">
+                <h1 class="text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-tight">
+                    Cegah <span class="bg-gradient-to-r from-amber-300 via-amber-400 to-yellow-500 bg-clip-text text-transparent">Sugar Spike</span> dengan Presisi Digital
                 </h1>
-                <p class="text-emerald-100 text-sm md:text-base leading-relaxed">
-                    Sinergi herbal alami Daun Murbei (1-DNJ), Kelor (Quercetin), dan Kayu Manis dengan pemanis Stevia (0 Kalori). Dikemas dalam pouch *Cassava Starch* 100% biodegradable.
+                <p class="text-emerald-100/90 text-sm md:text-lg leading-relaxed font-normal">
+                    Minuman fungsional herbal alami sinergis (Daun Murbei, Kelor, Kayu Manis) dipadukan pemanis Stevia 0 Kalori dan terintegrasi kalkulator dosis konsumsi presisi.
                 </p>
-                <div class="pt-2 flex flex-wrap gap-3">
-                    <a href="#calculator" class="bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-2">
+                <div class="pt-2 flex flex-wrap gap-4">
+                    <a href="#calculator" class="bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 text-emerald-950 font-extrabold px-6 py-3.5 rounded-2xl text-sm transition-all shadow-lg hover:shadow-amber-400/20 hover:-translate-y-0.5 flex items-center gap-2">
                         <i data-lucide="calculator" class="w-4 h-4"></i> Coba Kalkulator Dosis
+                    </a>
+                    <a href="#about" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 font-bold px-6 py-3.5 rounded-2xl text-sm transition-all backdrop-blur-sm flex items-center gap-2">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> Pelajari GuBye!
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- CALCULATOR SECTION -->
-        <section id="calculator" class="bg-white rounded-3xl shadow-lg border border-stone-200/80 p-6 md:p-8 space-y-6">
-            <div class="border-b border-stone-100 pb-4">
-                <div class="flex items-center space-x-2 text-emerald-800">
-                    <i data-lucide="cpu" class="w-6 h-6"></i>
-                    <h2 class="text-xl md:text-2xl font-bold">Digital Dosing Calculator</h2>
+        <!-- ABOUT US SECTION -->
+        <section id="about" class="bg-white rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-200/80 p-8 md:p-12 space-y-8">
+            <div class="max-w-3xl space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-900 text-xs font-extrabold uppercase tracking-wider">
+                    <i data-lucide="leaf" class="w-3.5 h-3.5 text-emerald-700"></i> Mengenal GuBye!
                 </div>
-                <p class="text-stone-500 text-xs md:text-sm mt-1">
-                    Algoritma berbasis Beban Glikemik (*Glycemic Load*) yang disesuaikan dengan data makanan khas Indonesia (Kemenkes RI/PERSAGI).
+                <h2 class="text-2xl md:text-4xl font-extrabold text-stone-900 tracking-tight">
+                    Solusi Minuman Sehat Generasi Modern
+                </h2>
+                <p class="text-stone-600 text-sm md:text-base leading-relaxed">
+                    <strong>GuBye!</strong> lahir dari komitmen menghadirkan minuman fungsional alami berbasis sains yang membantu menjaga kestabilan kadar gula darah pascamakan tanpa mengorbankan rasa yang nikmat.
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- 3 KEY PILLARS -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+                <div class="bg-stone-50 border border-stone-200/70 rounded-2xl p-6 space-y-3 hover:border-emerald-500/40 hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-900 text-amber-400 flex items-center justify-center shadow-md">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-stone-900">Formulasi Herbal Presisi</h3>
+                    <p class="text-xs md:text-sm text-stone-500 leading-relaxed">
+                        Kombinasi Daun Murbei (1-DNJ), Daun Kelor (Quercetin), dan Kayu Manis (*Cinnamomum burmannii*) secara terukur menahan pembentukan glukosa berlebih pascamakan.
+                    </p>
+                </div>
+
+                <div class="bg-stone-50 border border-stone-200/70 rounded-2xl p-6 space-y-3 hover:border-emerald-500/40 hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-900 text-amber-400 flex items-center justify-center shadow-md">
+                        <i data-lucide="binary" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-stone-900">Digital Dosing Engine</h3>
+                    <p class="text-xs md:text-sm text-stone-500 leading-relaxed">
+                        Terintegrasi algoritma cerdas berbasis Beban Glikemik (*Glycemic Load*) untuk menghitung estimasi kebutuhan takaran konsumsi (mL) sesuai hidangan yang dimakan.
+                    </p>
+                </div>
+
+                <div class="bg-stone-50 border border-stone-200/70 rounded-2xl p-6 space-y-3 hover:border-emerald-500/40 hover:shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-900 text-amber-400 flex items-center justify-center shadow-md">
+                        <i data-lucide="heart-pulse" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-stone-900">0 Kalori & Bebas Gula</h3>
+                    <p class="text-xs md:text-sm text-stone-500 leading-relaxed">
+                        Menggunakan ekstrak pemanis alami Stevia tanpa kalori dan tidak memicu lonjakan glukosa darah, aman dikonsumsi harian sebagai gaya hidup sehat.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR SECTION -->
+        <section id="calculator" class="bg-white rounded-3xl shadow-xl shadow-stone-200/50 border border-stone-200/80 p-6 md:p-10 space-y-8">
+            <div class="border-b border-stone-100 pb-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div class="space-y-1">
+                    <div class="inline-flex items-center gap-2 text-emerald-800 font-extrabold text-xs uppercase tracking-wider">
+                        <i data-lucide="cpu" class="w-4 h-4"></i> Interactive Tool
+                    </div>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-stone-900">Digital Dosing Calculator</h2>
+                    <p class="text-stone-500 text-xs md:text-sm">
+                        Hitung takaran porsi konsumsi GuBye! (mL) sesuai estimasi porsi makanan Anda.
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <!-- INPUT FORM (LEFT) -->
-                <div class="lg:col-span-7 space-y-5">
+                <div class="lg:col-span-7 space-y-6">
                     <div>
-                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
-                            Pilih Makanan Makanan Indonesia
+                        <label class="block text-xs font-extrabold text-stone-700 uppercase tracking-wider mb-2.5">
+                            Pilih Makanan Indonesia
                         </label>
-                        <select id="foodSelect" onchange="calculateDose()" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                        <select id="foodSelect" onchange="calculateDose()" class="w-full bg-stone-50 border border-stone-300 rounded-2xl px-4 py-3.5 text-sm font-medium focus:ring-2 focus:ring-emerald-600 focus:bg-white focus:outline-none transition-all shadow-sm">
                             <option value="nasi_goreng" data-gi="65" data-carb="42">Nasi Goreng Biasa (Porsi Standard)</option>
                             <option value="nasi_putih" data-gi="73" data-carb="40">Nasi Putih (1 Piring / 150g)</option>
                             <option value="mie_instan" data-gi="52" data-carb="48">Mie Instan Goreng (1 Bungkus)</option>
                             <option value="martabak_manis" data-gi="70" data-carb="55">Martabak Manis (2 Potong)</option>
-                            <option value="custom">-- Input Karbohidrat Sendiri (Gram) --</option>
+                            <option value="custom">-- Input Karbohidrat Kustom (Gram) --</option>
                         </select>
                     </div>
 
                     <!-- CUSTOM CARB INPUT -->
                     <div id="customCarbContainer" class="hidden">
-                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                        <label class="block text-xs font-extrabold text-stone-700 uppercase tracking-wider mb-2">
                             Estimasi Karbohidrat (Gram)
                         </label>
-                        <input type="number" id="customCarb" value="30" min="0" oninput="calculateDose()" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none" placeholder="Masukkan jumlah gram karbohidrat">
+                        <input type="number" id="customCarb" value="30" min="0" oninput="calculateDose()" class="w-full bg-stone-50 border border-stone-300 rounded-2xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:bg-white focus:outline-none transition-all" placeholder="Masukkan jumlah gram karbohidrat">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                        <label class="block text-xs font-extrabold text-stone-700 uppercase tracking-wider mb-2.5">
                             Ukuran Porsi Konsumsi
                         </label>
                         <div class="grid grid-cols-3 gap-3">
-                            <button type="button" onclick="setPortion(0.75, this)" class="portion-btn py-2.5 px-3 rounded-xl border border-stone-200 text-xs font-semibold text-stone-600 hover:border-emerald-600 focus:outline-none">Porsi Kecil (0.75x)</button>
-                            <button type="button" onclick="setPortion(1.0, this)" class="portion-btn active-portion py-2.5 px-3 rounded-xl border-2 border-emerald-700 bg-emerald-50 text-xs font-bold text-emerald-900 focus:outline-none">Sedang (1.0x)</button>
-                            <button type="button" onclick="setPortion(1.3, this)" class="portion-btn py-2.5 px-3 rounded-xl border border-stone-200 text-xs font-semibold text-stone-600 hover:border-emerald-600 focus:outline-none">Porsi Besar (1.3x)</button>
+                            <button type="button" onclick="setPortion(0.75, this)" class="portion-btn py-3 px-3 rounded-2xl border border-stone-200 text-xs font-bold text-stone-600 hover:border-emerald-600 hover:bg-emerald-50/50 transition-all focus:outline-none">Porsi Kecil (0.75x)</button>
+                            <button type="button" onclick="setPortion(1.0, this)" class="portion-btn active-portion py-3 px-3 rounded-2xl border-2 border-emerald-700 bg-emerald-50 text-xs font-bold text-emerald-950 shadow-sm focus:outline-none">Sedang (1.0x)</button>
+                            <button type="button" onclick="setPortion(1.3, this)" class="portion-btn py-3 px-3 rounded-2xl border border-stone-200 text-xs font-bold text-stone-600 hover:border-emerald-600 hover:bg-emerald-50/50 transition-all focus:outline-none">Porsi Besar (1.3x)</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- DISPLAY RESULT (RIGHT) -->
-                <div class="lg:col-span-5 bg-stone-900 text-white rounded-2xl p-6 flex flex-col justify-between space-y-6 shadow-md">
-                    <div>
-                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider">Rekomendasi Dosis Minum</span>
-                        <div class="mt-2 flex items-baseline space-x-2">
-                            <span id="doseOutput" class="text-5xl font-extrabold text-amber-400">180</span>
-                            <span class="text-xl font-bold text-stone-300">mL</span>
+                <div class="lg:col-span-5 bg-gradient-to-b from-stone-900 to-emerald-950 text-white rounded-3xl p-7 flex flex-col justify-between space-y-6 shadow-xl border border-emerald-900/50 relative overflow-hidden">
+                    <div class="space-y-4">
+                        <span class="text-xs text-amber-400 font-extrabold uppercase tracking-wider flex items-center gap-1.5">
+                            <i data-lucide="droplet" class="w-4 h-4"></i> Rekomendasi Dosis Minum
+                        </span>
+                        <div class="flex items-baseline space-x-2">
+                            <span id="doseOutput" class="text-6xl font-black text-amber-400 tracking-tight">180</span>
+                            <span class="text-2xl font-bold text-stone-300">mL</span>
                         </div>
-                        <p id="doseDescription" class="text-xs text-stone-400 mt-2 leading-relaxed">
-                            Minum GuBye! Cold-Brew 10-15 menit sebelum atau saat mengonsumsi makanan untuk efektivitas inhibisi $\alpha$-glukosidase optimal.
+                        <p id="doseDescription" class="text-xs text-stone-300 leading-relaxed bg-white/5 p-3.5 rounded-2xl border border-white/10">
+                            Minum GuBye! Cold-Brew 10-15 menit sebelum atau saat makan untuk efektivitas penyerapan glukosa optimal.
                         </p>
                     </div>
 
-                    <div class="border-t border-stone-800 pt-4 space-y-2">
-                        <div class="flex justify-between text-xs">
+                    <div class="border-t border-stone-800/80 pt-4 space-y-2.5">
+                        <div class="flex justify-between items-center text-xs">
                             <span class="text-stone-400">Indeks Glikemik (IG):</span>
-                            <span id="giDisplay" class="font-bold text-stone-200">65 (Sedang)</span>
+                            <span id="giDisplay" class="font-bold text-stone-200 bg-stone-800 px-2.5 py-1 rounded-lg">65 (Sedang)</span>
                         </div>
-                        <div class="flex justify-between text-xs">
+                        <div class="flex justify-between items-center text-xs">
                             <span class="text-stone-400">Estimasi Beban Glikemik (GL):</span>
-                            <span id="glDisplay" class="font-bold text-amber-300">27.3 (Tinggi)</span>
+                            <span id="glDisplay" class="font-bold text-amber-300 bg-amber-950/60 border border-amber-500/30 px-2.5 py-1 rounded-lg">27.3 (Tinggi)</span>
                         </div>
                     </div>
                 </div>
@@ -134,79 +189,56 @@
         </section>
 
         <!-- VARIAN RASA SECTION -->
-        <section id="variants" class="space-y-6">
+        <section id="variants" class="space-y-8">
             <div class="text-center max-w-xl mx-auto space-y-2">
-                <h2 class="text-2xl font-bold text-stone-800">Varian Rasa Herbal Fungsional</h2>
-                <p class="text-xs md:text-sm text-stone-500">100% Pemanis Alami Stevia (0 Kalori, Bebas Sugar Spike)</p>
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold uppercase tracking-wider">
+                    Varian Produk
+                </div>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-stone-900">Pilihan Rasa Nikmat & Segar</h2>
+                <p class="text-xs md:text-sm text-stone-500">100% Pemanis Alami Stevia (0 Kalori, Ramah Gula Darah)</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg">🍵</div>
-                    <h3 class="font-bold text-stone-800">Original Herbal</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Rasa seduhan teh herbal alami dengan sentuhan manis lembut stevia dan aroma kayu manis yang rileks.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white border border-stone-200/80 rounded-3xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform shadow-inner">🍵</div>
+                    <h3 class="font-bold text-lg text-stone-900">Original Herbal</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Rasa seduhan teh herbal alami dengan sentuhan manis lembut stevia dan aroma kayu manis yang hangat merilekskan.</p>
                 </div>
-                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3 overflow-hidden relative">
-                    <div class="absolute -top-1 -right-1 opacity-10 scale-150 rotate-12">
-                        <i data-lucide="strawberry" class="w-24 h-24 text-rose-500"></i>
-                    </div>
-                    <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-lg">🍓</div>
-                    <h3 class="font-bold text-stone-800">Strawberry Fresh</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Ekstrak buah stroberi alami yang memberikan kesegaran asam-manis seimbang tanpa gula tambahan.</p>
-                </div>
-                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3">
-                    <div class="w-10 h-10 rounded-xl bg-stone-200 text-stone-800 flex items-center justify-center font-bold text-lg">🍫</div>
-                    <h3 class="font-bold text-stone-800">Rich Chocolate</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Sentuhan rasa cokelat dark premium yang nikmat disajikan dingin untuk sensasi minuman mewah.</p>
-                </div>
-                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3 overflow-hidden relative">
-                    <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-800 flex items-center justify-center font-bold text-lg">🥭</div>
-                    <h3 class="font-bold text-stone-800">Tropical Mango</h3>
-                    <p class="text-xs text-stone-500 leading-relaxed">Aroma buah mangga tropis harum yang disukai anak muda, tetap 0 kalori dan ramah gula darah.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- R&D & PACKAGING SPOTLIGHT -->
-        <section id="rd-info" class="bg-emerald-50 border border-emerald-200/60 rounded-3xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="space-y-4">
-                <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Inovasi Kemasan</span>
-                <h3 class="text-xl font-bold text-emerald-950">100% Cassava Starch Biodegradable</h3>
-                <p class="text-xs md:text-sm text-emerald-900/80 leading-relaxed">
-                    Kemasan pouch dan kantong teh dibuat dari bioplastik kanji singkong (*cassava starch*). Terurai penuh di tanah (*home-compostable*) dalam waktu 3–6 bulan dan 100% bebas dari bahaya mikroplastik.
-                </p>
-            </div>
-            <div class="space-y-4">
-                <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Sinergi Formulasi Herbal</span>
-                <h3 class="text-xl font-bold text-emerald-950">Triple Bio-Active Formula</h3>
-                <ul class="text-xs md:text-sm text-emerald-900/80 space-y-2">
-                    <li><strong>• Daun Murbei:</strong> Mengandungi 1-DNJ sebagai inhibitor enzim $\alpha$-glukosidase.</li>
-                    <li><strong>• Daun Kelor:</strong> Kaya Quercetin sebagai penstabil respon glikemik.</li>
-                    <li><strong>• Kayu Manis:</strong> Meningkatkan sensitivitas insulin dan respon glukosa sel.</li>
-                </ul>
-            </div>
-        </section>
+                <!-- Card 2 -->
+                <div class="bg-white border border-stone-200/80 rounded-3xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform shadow-inner">🍓</div>
+                    <h3 class="font-bold text-lg text-stone-900">Strawberry Fresh</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Ekstrak buah stroberi alami yang memberikan kesegaran asam-manis seimbang tanpa tambahan gula pasir.</p>
+                </div>
 
-        <!-- REFERENCES SECTION -->
-        <section id="references" class="bg-white rounded-3xl border border-stone-200 p-6 md:p-8 space-y-4">
-            <h2 class="text-lg font-bold text-stone-800 flex items-center gap-2">
-                <i data-lucide="book-open" class="w-5 h-5 text-emerald-800"></i> Landasan Ilmiah & Bibliografi
-            </h2>
-            <div class="space-y-3 text-xs text-stone-600">
-                <p><strong>[Scopus Q1]</strong> Atkinson, F. S., et al. (2021). International tables of glycemic index and glycemic load values 2021. <i>AJCN</i>. <a href="https://doi.org/10.1093/ajcn/nqab233" target="_blank" class="text-emerald-700 underline">https://doi.org/10.1093/ajcn/nqab233</a></p>
-                <p><strong>[IPB University]</strong> Andarwulan, N., et al. (2010). Flavonoid content and antioxidant activity of vegetables from Indonesia. <i>Pusat Studi Biofarmaka Tropika IPB</i>.</p>
-                <p><strong>[BRIN / LIPI]</strong> Indriyati, I., et al. (2017). Pembuatan dan Karakterisasi Bioplastik Ramah Lingkungan Berbahan Dasar Pati Singkong Lokal. <i>Jurnal Riset Industri Hasil Hutan</i>.</p>
-                <p><strong>[Kemenkes RI]</strong> Tabel Komposisi Pangan Indonesia (TKPI) & Data Indeks Glikemik Makanan Indonesia (PERSAGI).</p>
+                <!-- Card 3 -->
+                <div class="bg-white border border-stone-200/80 rounded-3xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-stone-200 text-stone-800 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform shadow-inner">🍫</div>
+                    <h3 class="font-bold text-lg text-stone-900">Rich Chocolate</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Sentuhan rasa cokelat dark premium yang nikmat disajikan dingin untuk sensasi minuman fungsional mewah.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white border border-stone-200/80 rounded-3xl p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 space-y-4 group">
+                    <div class="w-14 h-14 rounded-2xl bg-yellow-100 text-yellow-800 flex items-center justify-center font-bold text-2xl group-hover:scale-110 transition-transform shadow-inner">🥭</div>
+                    <h3 class="font-bold text-lg text-stone-900">Tropical Mango</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Aroma buah mangga tropis harum yang disukai anak muda, tetap 0 kalori dan ramah bagi gula darah.</p>
+                </div>
             </div>
         </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-stone-900 text-stone-400 text-xs py-6 mt-12 border-t border-stone-800">
-        <div class="max-w-6xl mx-auto px-4 text-center space-y-2">
-            <p>© 2026 GuBye! Team — Developed for EBCC x NBPC Competition Proposal.</p>
-            <p class="text-stone-500">Formulasi Herbal Sinergis • Digital Dosing Calculator • Eco-Packaging Cassava Starch</p>
+    <footer class="bg-stone-950 text-stone-400 text-xs py-8 mt-16 border-t border-stone-800">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-3">
+            <div class="inline-block bg-amber-400 text-emerald-950 font-black px-3 py-1 rounded-lg text-sm tracking-wider">
+                GuBye!
+            </div>
+            <p>© 2026 GuBye! Team — Technopreneur Health Beverage & Digital Dosing Calculator.</p>
+            <p class="text-stone-500">Formulasi Herbal Sinergis • Digital Dosing Calculator • Stevia 0 Kalori</p>
         </div>
     </footer>
 
@@ -223,12 +255,12 @@
             // Update Active Class UI
             const buttons = document.querySelectorAll('.portion-btn');
             buttons.forEach(btn => {
-                btn.classList.remove('active-portion', 'border-2', 'border-emerald-700', 'bg-emerald-50', 'text-emerald-900', 'font-bold');
-                btn.classList.add('border', 'border-stone-200', 'text-stone-600', 'font-semibold');
+                btn.classList.remove('active-portion', 'border-2', 'border-emerald-700', 'bg-emerald-50', 'text-emerald-950', 'shadow-sm');
+                btn.classList.add('border', 'border-stone-200', 'text-stone-600');
             });
 
-            btnElement.classList.add('active-portion', 'border-2', 'border-emerald-700', 'bg-emerald-50', 'text-emerald-900', 'font-bold');
-            btnElement.classList.remove('border-stone-200', 'text-stone-600', 'font-semibold');
+            btnElement.classList.add('active-portion', 'border-2', 'border-emerald-700', 'bg-emerald-50', 'text-emerald-950', 'shadow-sm');
+            btnElement.classList.remove('border-stone-200', 'text-stone-600');
 
             calculateDose();
         }
@@ -244,7 +276,7 @@
             if (foodSelect.value === 'custom') {
                 customCarbContainer.classList.remove('hidden');
                 carb = parseFloat(document.getElementById('customCarb').value) || 0;
-                gi = 65; // Assumed GI for custom input
+                gi = 65;
             } else {
                 customCarbContainer.classList.add('hidden');
                 gi = parseFloat(selectedOption.getAttribute('data-gi'));
@@ -255,7 +287,7 @@
             const adjustedCarb = carb * currentPortion;
             const gl = (gi * adjustedCarb) / 100;
 
-            // Dosing Algorithm Logic: Base dose = 120ml, scaled dynamically based on GL
+            // Dosing Algorithm Logic
             let recommendedDose = Math.round(120 + (gl * 2.2));
             if (recommendedDose < 100) recommendedDose = 100;
             if (recommendedDose > 250) recommendedDose = 250;
