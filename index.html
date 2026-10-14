@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuBye! - Digital Dosing Calculator & Health Beverage</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="bg-emerald-900 text-stone-100 sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="bg-amber-400 text-emerald-950 font-extrabold px-3 py-1 rounded-lg text-xl tracking-wider">
+                    GuBye!
+                </div>
+                <span class="text-xs md:text-sm text-emerald-200 hidden sm:inline font-medium">
+                    Technopreneur Health Beverage
+                </span>
+            </div>
+            <nav class="flex items-center space-x-4 text-xs md:text-sm font-medium">
+                <a href="#calculator" class="hover:text-amber-300 transition">Kalkulator Dosis</a>
+                <a href="#variants" class="hover:text-amber-300 transition">Varian Rasa</a>
+                <a href="#rd-info" class="hover:text-amber-300 transition">R&D & Packaging</a>
+                <a href="#references" class="hover:text-amber-300 transition">Referensi</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO & CALCULATOR SECTION -->
+    <main class="max-w-6xl mx-auto px-4 py-8 w-full space-y-12">
+        
+        <!-- HERO BANNER -->
+        <section class="bg-gradient-to-r from-emerald-800 to-emerald-950 text-white rounded-3xl p-6 md:p-10 shadow-xl relative overflow-hidden">
+            <div class="relative z-10 max-w-2xl space-y-4">
+                <span class="bg-amber-400 text-emerald-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                    EBCC x NBPC 2026 Proposal Concept
+                </span>
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
+                    Cegah <span class="text-amber-300">Sugar Spike</span> dengan Presisi Digital
+                </h1>
+                <p class="text-emerald-100 text-sm md:text-base leading-relaxed">
+                    Sinergi herbal alami Daun Murbei (1-DNJ), Kelor (Quercetin), dan Kayu Manis dengan pemanis Stevia (0 Kalori). Dikemas dalam pouch *Cassava Starch* 100% biodegradable.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-3">
+                    <a href="#calculator" class="bg-amber-400 hover:bg-amber-300 text-emerald-950 font-bold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-2">
+                        <i data-lucide="calculator" class="w-4 h-4"></i> Coba Kalkulator Dosis
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATOR SECTION -->
+        <section id="calculator" class="bg-white rounded-3xl shadow-lg border border-stone-200/80 p-6 md:p-8 space-y-6">
+            <div class="border-b border-stone-100 pb-4">
+                <div class="flex items-center space-x-2 text-emerald-800">
+                    <i data-lucide="cpu" class="w-6 h-6"></i>
+                    <h2 class="text-xl md:text-2xl font-bold">Digital Dosing Calculator</h2>
+                </div>
+                <p class="text-stone-500 text-xs md:text-sm mt-1">
+                    Algoritma berbasis Beban Glikemik (*Glycemic Load*) yang disesuaikan dengan data makanan khas Indonesia (Kemenkes RI/PERSAGI).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- INPUT FORM (LEFT) -->
+                <div class="lg:col-span-7 space-y-5">
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                            Pilih Makanan Makanan Indonesia
+                        </label>
+                        <select id="foodSelect" onchange="calculateDose()" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none">
+                            <option value="nasi_goreng" data-gi="65" data-carb="42">Nasi Goreng Biasa (Porsi Standard)</option>
+                            <option value="nasi_putih" data-gi="73" data-carb="40">Nasi Putih (1 Piring / 150g)</option>
+                            <option value="mie_instan" data-gi="52" data-carb="48">Mie Instan Goreng (1 Bungkus)</option>
+                            <option value="martabak_manis" data-gi="70" data-carb="55">Martabak Manis (2 Potong)</option>
+                            <option value="custom">-- Input Karbohidrat Sendiri (Gram) --</option>
+                        </select>
+                    </div>
+
+                    <!-- CUSTOM CARB INPUT -->
+                    <div id="customCarbContainer" class="hidden">
+                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                            Estimasi Karbohidrat (Gram)
+                        </label>
+                        <input type="number" id="customCarb" value="30" min="0" oninput="calculateDose()" class="w-full bg-stone-50 border border-stone-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-emerald-600 focus:outline-none" placeholder="Masukkan jumlah gram karbohidrat">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-2">
+                            Ukuran Porsi Konsumsi
+                        </label>
+                        <div class="grid grid-cols-3 gap-3">
+                            <button type="button" onclick="setPortion(0.75, this)" class="portion-btn py-2.5 px-3 rounded-xl border border-stone-200 text-xs font-semibold text-stone-600 hover:border-emerald-600 focus:outline-none">Porsi Kecil (0.75x)</button>
+                            <button type="button" onclick="setPortion(1.0, this)" class="portion-btn active-portion py-2.5 px-3 rounded-xl border-2 border-emerald-700 bg-emerald-50 text-xs font-bold text-emerald-900 focus:outline-none">Sedang (1.0x)</button>
+                            <button type="button" onclick="setPortion(1.3, this)" class="portion-btn py-2.5 px-3 rounded-xl border border-stone-200 text-xs font-semibold text-stone-600 hover:border-emerald-600 focus:outline-none">Porsi Besar (1.3x)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DISPLAY RESULT (RIGHT) -->
+                <div class="lg:col-span-5 bg-stone-900 text-white rounded-2xl p-6 flex flex-col justify-between space-y-6 shadow-md">
+                    <div>
+                        <span class="text-xs text-amber-400 font-semibold uppercase tracking-wider">Rekomendasi Dosis Minum</span>
+                        <div class="mt-2 flex items-baseline space-x-2">
+                            <span id="doseOutput" class="text-5xl font-extrabold text-amber-400">180</span>
+                            <span class="text-xl font-bold text-stone-300">mL</span>
+                        </div>
+                        <p id="doseDescription" class="text-xs text-stone-400 mt-2 leading-relaxed">
+                            Minum GuBye! Cold-Brew 10-15 menit sebelum atau saat mengonsumsi makanan untuk efektivitas inhibisi $\alpha$-glukosidase optimal.
+                        </p>
+                    </div>
+
+                    <div class="border-t border-stone-800 pt-4 space-y-2">
+                        <div class="flex justify-between text-xs">
+                            <span class="text-stone-400">Indeks Glikemik (IG):</span>
+                            <span id="giDisplay" class="font-bold text-stone-200">65 (Sedang)</span>
+                        </div>
+                        <div class="flex justify-between text-xs">
+                            <span class="text-stone-400">Estimasi Beban Glikemik (GL):</span>
+                            <span id="glDisplay" class="font-bold text-amber-300">27.3 (Tinggi)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VARIAN RASA SECTION -->
+        <section id="variants" class="space-y-6">
+            <div class="text-center max-w-xl mx-auto space-y-2">
+                <h2 class="text-2xl font-bold text-stone-800">Varian Rasa Herbal Fungsional</h2>
+                <p class="text-xs md:text-sm text-stone-500">100% Pemanis Alami Stevia (0 Kalori, Bebas Sugar Spike)</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-lg">🍵</div>
+                    <h3 class="font-bold text-stone-800">Original Herbal</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Rasa seduhan teh herbal alami dengan sentuhan manis lembut stevia dan aroma kayu manis yang rileks.</p>
+                </div>
+                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3 overflow-hidden relative">
+                    <div class="absolute -top-1 -right-1 opacity-10 scale-150 rotate-12">
+                        <i data-lucide="strawberry" class="w-24 h-24 text-rose-500"></i>
+                    </div>
+                    <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-800 flex items-center justify-center font-bold text-lg">🍓</div>
+                    <h3 class="font-bold text-stone-800">Strawberry Fresh</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Ekstrak buah stroberi alami yang memberikan kesegaran asam-manis seimbang tanpa gula tambahan.</p>
+                </div>
+                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3">
+                    <div class="w-10 h-10 rounded-xl bg-stone-200 text-stone-800 flex items-center justify-center font-bold text-lg">🍫</div>
+                    <h3 class="font-bold text-stone-800">Rich Chocolate</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Sentuhan rasa cokelat dark premium yang nikmat disajikan dingin untuk sensasi minuman mewah.</p>
+                </div>
+                <div class="bg-white border border-stone-200 rounded-2xl p-5 hover:shadow-md transition space-y-3 overflow-hidden relative">
+                    <div class="w-10 h-10 rounded-xl bg-yellow-100 text-yellow-800 flex items-center justify-center font-bold text-lg">🥭</div>
+                    <h3 class="font-bold text-stone-800">Tropical Mango</h3>
+                    <p class="text-xs text-stone-500 leading-relaxed">Aroma buah mangga tropis harum yang disukai anak muda, tetap 0 kalori dan ramah gula darah.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- R&D & PACKAGING SPOTLIGHT -->
+        <section id="rd-info" class="bg-emerald-50 border border-emerald-200/60 rounded-3xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+                <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Inovasi Kemasan</span>
+                <h3 class="text-xl font-bold text-emerald-950">100% Cassava Starch Biodegradable</h3>
+                <p class="text-xs md:text-sm text-emerald-900/80 leading-relaxed">
+                    Kemasan pouch dan kantong teh dibuat dari bioplastik kanji singkong (*cassava starch*). Terurai penuh di tanah (*home-compostable*) dalam waktu 3–6 bulan dan 100% bebas dari bahaya mikroplastik.
+                </p>
+            </div>
+            <div class="space-y-4">
+                <span class="text-xs font-bold text-emerald-800 uppercase tracking-wider">Sinergi Formulasi Herbal</span>
+                <h3 class="text-xl font-bold text-emerald-950">Triple Bio-Active Formula</h3>
+                <ul class="text-xs md:text-sm text-emerald-900/80 space-y-2">
+                    <li><strong>• Daun Murbei:</strong> Mengandungi 1-DNJ sebagai inhibitor enzim $\alpha$-glukosidase.</li>
+                    <li><strong>• Daun Kelor:</strong> Kaya Quercetin sebagai penstabil respon glikemik.</li>
+                    <li><strong>• Kayu Manis:</strong> Meningkatkan sensitivitas insulin dan respon glukosa sel.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- REFERENCES SECTION -->
+        <section id="references" class="bg-white rounded-3xl border border-stone-200 p-6 md:p-8 space-y-4">
+            <h2 class="text-lg font-bold text-stone-800 flex items-center gap-2">
+                <i data-lucide="book-open" class="w-5 h-5 text-emerald-800"></i> Landasan Ilmiah & Bibliografi
+            </h2>
+            <div class="space-y-3 text-xs text-stone-600">
+                <p><strong>[Scopus Q1]</strong> Atkinson, F. S., et al. (2021). International tables of glycemic index and glycemic load values 2021. <i>AJCN</i>. <a href="https://doi.org/10.1093/ajcn/nqab233" target="_blank" class="text-emerald-700 underline">https://doi.org/10.1093/ajcn/nqab233</a></p>
+                <p><strong>[IPB University]</strong> Andarwulan, N., et al. (2010). Flavonoid content and antioxidant activity of vegetables from Indonesia. <i>Pusat Studi Biofarmaka Tropika IPB</i>.</p>
+                <p><strong>[BRIN / LIPI]</strong> Indriyati, I., et al. (2017). Pembuatan dan Karakterisasi Bioplastik Ramah Lingkungan Berbahan Dasar Pati Singkong Lokal. <i>Jurnal Riset Industri Hasil Hutan</i>.</p>
+                <p><strong>[Kemenkes RI]</strong> Tabel Komposisi Pangan Indonesia (TKPI) & Data Indeks Glikemik Makanan Indonesia (PERSAGI).</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-900 text-stone-400 text-xs py-6 mt-12 border-t border-stone-800">
+        <div class="max-w-6xl mx-auto px-4 text-center space-y-2">
+            <p>© 2026 GuBye! Team — Developed for EBCC x NBPC Competition Proposal.</p>
+            <p class="text-stone-500">Formulasi Herbal Sinergis • Digital Dosing Calculator • Eco-Packaging Cassava Starch</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        let currentPortion = 1.0;
+
+        function setPortion(factor, btnElement) {
+            currentPortion = factor;
+            
+            // Update Active Class UI
+            const buttons = document.querySelectorAll('.portion-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active-portion', 'border-2', 'border-emerald-700', 'bg-emerald-50', 'text-emerald-900', 'font-bold');
+                btn.classList.add('border', 'border-stone-200', 'text-stone-600', 'font-semibold');
+            });
+
+            btnElement.classList.add('active-portion', 'border-2', 'border-emerald-700', 'bg-emerald-50', 'text-emerald-900', 'font-bold');
+            btnElement.classList.remove('border-stone-200', 'text-stone-600', 'font-semibold');
+
+            calculateDose();
+        }
+
+        function calculateDose() {
+            const foodSelect = document.getElementById('foodSelect');
+            const customCarbContainer = document.getElementById('customCarbContainer');
+            const selectedOption = foodSelect.options[foodSelect.selectedIndex];
+
+            let gi = 60;
+            let carb = 30;
+
+            if (foodSelect.value === 'custom') {
+                customCarbContainer.classList.remove('hidden');
+                carb = parseFloat(document.getElementById('customCarb').value) || 0;
+                gi = 65; // Assumed GI for custom input
+            } else {
+                customCarbContainer.classList.add('hidden');
+                gi = parseFloat(selectedOption.getAttribute('data-gi'));
+                carb = parseFloat(selectedOption.getAttribute('data-carb'));
+            }
+
+            // Calculate adjusted Glycemic Load (GL)
+            const adjustedCarb = carb * currentPortion;
+            const gl = (gi * adjustedCarb) / 100;
+
+            // Dosing Algorithm Logic: Base dose = 120ml, scaled dynamically based on GL
+            let recommendedDose = Math.round(120 + (gl * 2.2));
+            if (recommendedDose < 100) recommendedDose = 100;
+            if (recommendedDose > 250) recommendedDose = 250;
+
+            // UI Updates
+            document.getElementById('doseOutput').innerText = recommendedDose;
+            document.getElementById('giDisplay').innerText = `${gi} (${gi >= 70 ? 'Tinggi' : gi >= 56 ? 'Sedang' : 'Rendah'})`;
+            document.getElementById('glDisplay').innerText = `${gl.toFixed(1)} (${gl >= 20 ? 'Tinggi' : gl >= 11 ? 'Sedang' : 'Rendah'})`;
+        }
+
+        // Initial Run
+        calculateDose();
+    </script>
+</body>
+</html>
